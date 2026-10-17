@@ -129,6 +129,7 @@ export const infra = [
       "Firebase App Distribution, GitHub 이벤트, Crashlytics 알림 수신 엔드포인트",
       "Google Play 리뷰와 AdMob 수익은 주기적으로 조회해 채널에 요약",
       "Claude와 Copilot에 연결한 대화형 봇 (이벤트 스트림 수신)",
+      "Mattermost 메시지를 Claude Code 세션과 주고받는 MCP 채널을 구성하고, 도구 승인 요청을 DM으로 중계",
     ],
     chips: ["Mattermost", "TypeScript", "Express", "Webhook", "WebSocket"],
   },
@@ -138,10 +139,11 @@ export const infra = [
     desc: "하나의 리버스 프록시 뒤에 백엔드 API, 봇, CI, 메신저, 웹 대시보드를 경로별로 나눠 올리고, 외부에서도 접속할 수 있게 운영합니다.",
     bullets: [
       "정적 프론트엔드 서빙과 API 프록시를 한 서버에서 처리하고 WebSocket 업그레이드를 지원",
-      "메신저는 Docker 컨테이너와 PostgreSQL로 구성하고, 프록시는 서비스로 등록해 자동 시작",
-      "프록시 설정과 서비스별 역할을 문서로 남겨 재구성 가능",
+      "메신저·웹훅 서비스·봇·프록시 설정을 하나의 비공개 저장소로 관리하고, 스크립트 한 번으로 새 PC에 복원 (도구 설치, 메신저, 빌드, 프록시, 프로세스 관리 순서, 여러 번 실행해도 안전)",
+      "프록시 설정 적용 시 검증에 실패하면 이전 설정으로 자동 복구",
+      "메신저 DB 백업·복원 스크립트와 로그인 시 자동 시작 구성, 프로세스는 pm2로 관리",
     ],
-    chips: ["nginx", "Docker", "PostgreSQL", "Reverse Proxy"],
+    chips: ["nginx", "Docker", "PostgreSQL", "pm2", "launchd", "Shell"],
   },
   {
     title: "로컬 LLM",
