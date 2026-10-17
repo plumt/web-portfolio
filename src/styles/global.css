@@ -48,6 +48,7 @@ a:focus-visible, .btn:focus-visible, label:focus-visible { outline: 2px solid va
 .stat-tile:first-child { border-left: 0; padding-left: 0; }
 @media (max-width: 767px) { .stat-tile:nth-child(odd) { border-left: 0; padding-left: 0; } }
 .stat-num { font-size: clamp(2.3rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; color: var(--accent); }
+.stat-num.txt { font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.5; letter-spacing: -0.03em; color: var(--fg); padding-top: .55rem; }
 .stat-label { font-size: .85rem; color: var(--muted); margin-top: .4rem; }
 
 /* ---------- 섹션 ---------- */

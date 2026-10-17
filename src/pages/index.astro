@@ -8,12 +8,11 @@ import { apps, stats, lemon, infra } from "../data";
 
 <BaseLayout sideBarActiveItemID="home">
   <section class="hero-wrap">
-    <span class="hero-kicker">레몬헬스케어 · 모바일 앱 개발자</span>
     <h1 class="hero-title">
       안녕하세요,<br /><span class="accent-text">모바일 앱 개발자</span> 이윤성입니다
     </h1>
     <p class="hero-sub">
-      Android를 주력으로 KMP로 AOS·iOS를 함께 만듭니다. 클린 아키텍처로 앱을 모듈 단위로 조립하고,
+      Android를 주력으로 앱을 만듭니다. 클린 아키텍처로 앱을 모듈 단위로 조립하고,
       CI/CD와 테스트 같은 반복 업무는 AI가 처리하도록 자동화하는 데 관심이 많습니다.
     </p>
     <div class="hero-links">
@@ -23,7 +22,7 @@ import { apps, stats, lemon, infra } from "../data";
     </div>
     <div class="stat-grid">
       {stats.map((s) => (
-        <div class="stat-tile"><div class="stat-num">{s.num}</div><div class="stat-label">{s.label}</div></div>
+        <div class="stat-tile"><div class={`stat-num${s.text ? " txt" : ""}`}>{s.num}</div><div class="stat-label">{s.label}</div></div>
       ))}
     </div>
   </section>
@@ -42,7 +41,7 @@ import { apps, stats, lemon, infra } from "../data";
     <SectionHead num="02" title="만든 앱" desc="Android 앱 6개를 하나의 모노레포로 관리합니다. 소스는 비공개이고 구조와 설계를 문서로 공개했습니다." />
     <div class="card-grid">
       {apps.map((a, n) => (
-        <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} tone={n % 6} pills={a.live ? [{ text: "사용 중", live: true }] : []}><p>{a.desc}</p></Item>
+        <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} tone={n % 6}><p>{a.desc}</p></Item>
       ))}
     </div>
   </section>

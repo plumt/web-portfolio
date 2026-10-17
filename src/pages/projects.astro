@@ -7,11 +7,11 @@ import { apps, firebase } from "../data";
 ---
 
 <BaseLayout title="Apps" sideBarActiveItemID="projects">
-  <SectionHead num="01" title="만든 앱" desc="Kotlin과 Jetpack Compose로 만든 Android 앱 6개. 로또 앱과 달 앱은 실제로 가장 활발히 사용 중이고, 나머지는 준비 단계입니다." />
+  <SectionHead num="01" title="만든 앱" desc="Kotlin과 Jetpack Compose로 만든 Android 앱 6개. 아직 출시 전이고, 하나씩 다듬어 가고 있습니다." />
 
   <div class="card-grid">
     {apps.map((a, n) => (
-      <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} tone={n % 6} pills={a.live ? [{ text: "사용 중", live: true }] : []}><p>{a.desc}</p></Item>
+      <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} tone={n % 6}><p>{a.desc}</p></Item>
     ))}
   </div>
 
@@ -27,7 +27,7 @@ import { apps, firebase } from "../data";
   </section>
 
   <section class="sec">
-    <SectionHead num="03" title="Firebase로 구성한 서비스" desc="앱 개발자로서 백엔드와 프론트를 Firebase로 구성했습니다. 서비스 준비 단계이고, 로또 앱과 달 앱이 가장 활발히 쓰입니다." />
+    <SectionHead num="03" title="Firebase로 구성한 서비스" desc="앱 개발자로서 백엔드와 프론트를 Firebase로 구성했습니다. 서비스 준비 단계입니다." />
     <div class="card-grid">
       {firebase.map((f) => <Item title={f.title}><p>{f.desc}</p></Item>)}
     </div>

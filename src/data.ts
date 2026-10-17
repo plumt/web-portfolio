@@ -1,20 +1,14 @@
 import { PROFILE, careerYear } from "./config";
 
 export const apps = [
-  { name: "Lottomate", path: "lottomate", desc: "로또 번호 관리, 당첨 확인, 통계, 당첨 푸시 알림. 종이 티켓 느낌의 Paper 컴포넌트로 화면을 통일했습니다.", chips: ["Compose", "Room", "FCM"], live: true },
-  { name: "Lunar", path: "lunar", desc: "달 위상 대시보드와 달력, 달 이벤트 알림.", chips: ["Compose", "FCM"], live: true },
+  { name: "Lottomate", path: "lottomate", desc: "로또 번호 관리, 당첨 확인, 통계, 당첨 푸시 알림. 종이 티켓 느낌의 Paper 컴포넌트로 화면을 통일했습니다.", chips: ["Compose", "Room", "FCM"] },
+  { name: "Lunar", path: "lunar", desc: "달 위상 대시보드와 달력, 달 이벤트 알림.", chips: ["Compose", "FCM"] },
   { name: "QRScanner (Q-Ring)", path: "qrscanner", desc: "QR 다중 스캔, 생성, 이력 관리.", chips: ["Compose"] },
   { name: "Diding", path: "diding", desc: "알람 기반 TODO·일정 관리.", chips: ["Compose"] },
   { name: "Moduta", path: "moduta", desc: "서울시 버스 실시간 정보와 지도.", chips: ["Compose"] },
   { name: "Fxrate", path: "fxrate", desc: "환율 조회와 임계값 알림, 홈 위젯.", chips: ["Compose"] },
 ].map((a) => ({ ...a, url: `${PROFILE.docsRepo}/tree/main/apps/${a.path}` }));
 
-export const stats = [
-  { num: `${careerYear()}년차`, label: "모바일 앱 개발자" },
-  { num: "6개", label: "Android 앱 (개인 프로젝트)" },
-  { num: "135개", label: "Gradle 모듈 (모노레포)" },
-  { num: "KMP", label: "AOS · iOS 공통 모듈 개발" },
-];
 
 export const lemon = {
   company: "레몬헬스케어",
@@ -22,7 +16,7 @@ export const lemon = {
   items: [
     {
       title: "의료진용 업무 앱",
-      meta: "Android · iOS · 사내 전용(스토어 미공개)",
+      meta: "Android · iOS · 사내 배포",
       desc: "의료진이 업무에 쓰는 내부 앱을 KMP로 개발하고 운영합니다. Android와 iOS를 모두 담당합니다.",
       chips: ["KMP", "Kotlin", "Compose"],
     },
@@ -157,4 +151,24 @@ export const infra = [
     ],
     chips: ["Claude Code", "Codex", "Skills", "Agents"],
   },
+];
+
+export const automations = [
+  { title: "앱 빌드·배포", desc: "요청 한 번으로 빌드하고 배포합니다.", wip: false },
+  { title: "배포 태그 관리", desc: "배포 버전 태그를 자동으로 남기고 관리합니다.", wip: false },
+  { title: "유닛 테스트 자동 실행", desc: "빌드와 함께 유닛 테스트를 돌려 결과를 확인합니다.", wip: false },
+  { title: "백엔드·프론트엔드 배포", desc: "서버와 웹 배포를 파이프라인으로 처리합니다.", wip: false },
+  { title: "빌드 결과 알림", desc: "성공과 실패를 Mattermost로 알립니다.", wip: false },
+  { title: "빌드 실패 분석·수정", desc: "실패 로그를 로컬 LLM이 분석하고 수정을 시도합니다.", wip: false },
+  { title: "크래시 감지·분석·수정", desc: "Crashlytics 크래시를 감지해 원인을 분석하고 수정 PR 초안까지 만듭니다.", wip: true },
+  { title: "UI 테스트 자동화", desc: "화면 테스트를 파이프라인에서 자동으로 실행합니다.", wip: true },
+];
+
+
+export const stats = [
+  { num: `${careerYear()}년차`, label: "모바일 앱 개발자" },
+  { num: "6개", label: "Side Projects" },
+  { num: `${automations.length}개`, label: "자동화 프로세스" },
+  // 임시: ai-plugin 의 skills/ + agents/ 를 센 값(2026-10-17). 갱신 방법은 추후 결정
+  { num: "38개", label: "AI 스킬·에이전트" },
 ];
