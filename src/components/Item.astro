@@ -1,13 +1,17 @@
 ---
-const { title, meta, url, pills = [], chips = [], bullets = [], target = "_blank" } = Astro.props;
+const { title, meta, url, pills = [], chips = [], bullets = [], icon, tone = 0, current = false, target = "_blank" } = Astro.props;
 const Tag = url ? "a" : "div";
 const left = [meta, ...pills.map((p) => p.text)].filter(Boolean).join(" · ");
+const linkProps = url ? { href: url, target, ...(target === "_blank" ? { rel: "noopener noreferrer" } : {}) } : {};
 ---
 
-<Tag class="pcard" {...(url ? { href: url, target } : {})}>
-  <div class="meta">{left}</div>
+<Tag class={`pcard${current ? " current" : ""}`} {...linkProps}>
+  <div class="meta">
+    {icon && <div class={`app-icon tone-${tone}`} aria-hidden="true">{icon}</div>}
+    {icon ? <span class="sub">{left}</span> : left}
+  </div>
   <div class="body">
-    <h3>{title}</h3>
+    <h3>{title}{url && target === "_blank" && <span class="sr-only"> (새 창)</span>}</h3>
     <slot />
     {bullets.length > 0 && <ul>{bullets.map((b) => <li>{b}</li>)}</ul>}
     {chips.length > 0 && <div class="tech">{chips.join(" · ")}</div>}

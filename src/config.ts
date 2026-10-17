@@ -1,7 +1,7 @@
 export const SITE_TITLE = '이윤성 | 모바일 앱 개발자';
 export const SITE_DESCRIPTION = '안드로이드 네이티브를 주력으로 React Native와 Kotlin Multiplatform까지 다루는 모바일 앱 개발자 이윤성의 포트폴리오입니다.';
 export const GENERATE_SLUG_FROM_TITLE = true
-export const TRANSITION_API = true
+export const TRANSITION_API = false
 
 export const PROFILE = {
   name: '이윤성',
