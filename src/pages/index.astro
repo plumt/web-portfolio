@@ -39,7 +39,7 @@ import { apps, stats, lemon, infra } from "../data";
   </section>
 
   <section class="sec">
-    <SectionHead num="02" title="직접 만든 앱" desc="Android 앱 6개를 하나의 모노레포로 관리합니다. 소스는 비공개이고 구조와 설계를 문서로 공개했습니다." />
+    <SectionHead num="02" title="만든 앱" desc="Android 앱 6개를 하나의 모노레포로 관리합니다. 소스는 비공개이고 구조와 설계를 문서로 공개했습니다." />
     <div class="card-grid">
       {apps.map((a, n) => (
         <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} tone={n % 6} pills={a.live ? [{ text: "사용 중", live: true }] : []}><p>{a.desc}</p></Item>
@@ -48,7 +48,7 @@ import { apps, stats, lemon, infra } from "../data";
   </section>
 
   <section class="sec">
-    <SectionHead num="03" title="만들고 운영하는 것" desc="CI/CD, 홈서버, 메신저, 로컬 LLM, AI 하네스를 직접 구성하고 있습니다." />
+    <SectionHead num="03" title="만들고 운영하는 것" desc="CI/CD, 홈서버, 메신저, 로컬 LLM, AI 하네스를 구성하고 운영합니다." />
     <div class="card-grid">
       {infra.slice(0, 4).map((i) => (
         <Item title={i.title} meta={i.meta} chips={i.chips}>{i.desc && <p>{i.desc}</p>}</Item>

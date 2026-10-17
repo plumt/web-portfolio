@@ -3,6 +3,17 @@ export const SITE_DESCRIPTION = '안드로이드 네이티브를 주력으로 Re
 export const GENERATE_SLUG_FROM_TITLE = true
 export const TRANSITION_API = false
 
+// 경력 시작일(첫 입사). 연차는 빌드 시점에 이 날짜로 계산한다.
+export const CAREER_START = new Date('2020-12-01');
+export function careerYear(now: Date = new Date()): number {
+  let years = now.getFullYear() - CAREER_START.getFullYear();
+  const beforeAnniversary =
+    now.getMonth() < CAREER_START.getMonth() ||
+    (now.getMonth() === CAREER_START.getMonth() && now.getDate() < CAREER_START.getDate());
+  if (beforeAnniversary) years -= 1;
+  return years + 1;
+}
+
 export const PROFILE = {
   name: '이윤성',
   email: 'dldbstjd3210@naver.com',

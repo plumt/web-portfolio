@@ -1,4 +1,4 @@
-import { PROFILE } from "./config";
+import { PROFILE, careerYear } from "./config";
 
 export const apps = [
   { name: "Lottomate", path: "lottomate", desc: "로또 번호 관리, 당첨 확인, 통계, 당첨 푸시 알림. 종이 티켓 느낌의 Paper 컴포넌트로 화면을 통일했습니다.", chips: ["Compose", "Room", "FCM"], live: true },
@@ -10,8 +10,8 @@ export const apps = [
 ].map((a) => ({ ...a, url: `${PROFILE.docsRepo}/tree/main/apps/${a.path}` }));
 
 export const stats = [
-  { num: "5년+", label: "모바일 앱 개발 경력" },
-  { num: "6개", label: "직접 만든 Android 앱" },
+  { num: `${careerYear()}년차`, label: "모바일 앱 개발자" },
+  { num: "6개", label: "Android 앱 (개인 프로젝트)" },
   { num: "135개", label: "Gradle 모듈 (모노레포)" },
   { num: "KMP", label: "AOS · iOS 공통 모듈 개발" },
 ];
@@ -35,7 +35,7 @@ export const lemon = {
     {
       title: "건강의 신",
       meta: "Android · iOS · 자사 서비스",
-      desc: "클린 아키텍처와 KMP로 모듈을 조립하는 형태의 앱입니다. 화면과 기능을 독립 모듈로 나누고, 공통 모듈의 약 80%를 직접 개발했습니다.",
+      desc: "클린 아키텍처와 KMP로 모듈을 조립하는 형태의 앱입니다. 화면과 기능을 독립 모듈로 나누고, 공통 모듈의 약 80%를 개발했습니다.",
       chips: ["KMP", "Clean Architecture", "모듈화"],
     },
     {
@@ -114,7 +114,7 @@ export const firebase = [
 export const infra = [
   {
     title: "Jenkins CI/CD",
-    meta: "직접 구성·운영",
+    meta: "CI/CD",
     bullets: [
       "앱 빌드와 배포, 유닛 테스트, 배포 태그 관리, 알림",
       "백엔드와 프론트엔드 배포 파이프라인",
@@ -126,19 +126,19 @@ export const infra = [
   {
     title: "홈서버",
     meta: "Mac mini",
-    desc: "nginx 리버스 프록시 뒤에 백엔드 API, 봇, Jenkins, 메신저를 경로별로 나눠 올리고 외부에서 접속할 수 있게 직접 운영합니다.",
+    desc: "nginx 리버스 프록시 뒤에 백엔드 API, 봇, Jenkins, 메신저를 경로별로 나눠 올리고 외부에서 접속할 수 있게 운영합니다.",
     chips: ["nginx", "Docker", "PostgreSQL"],
   },
   {
     title: "Mattermost와 봇",
-    meta: "자체 설치·운영",
-    desc: "팀 메신저를 직접 설치해 쓰고, Claude 연동 봇과 Jenkins 알림 봇을 만들어 연결했습니다.",
+    meta: "메신저",
+    desc: "팀 메신저를 설치해 운영하고, Claude 연동 봇과 Jenkins 알림 봇을 만들어 연결했습니다.",
     chips: ["Mattermost", "TypeScript", "Webhook"],
   },
   {
     title: "로컬 LLM",
     meta: "Ollama",
-    desc: "gpt-oss, gemma, qwen, deepseek-coder 등 여러 모델을 직접 비교하고, 코딩 보조와 서비스 기능에 활용합니다.",
+    desc: "gpt-oss, gemma, qwen, deepseek-coder 등 여러 모델을 비교하고, 코딩 보조와 서비스 기능에 활용합니다.",
     bullets: [
       "서브 에이전트로 간단한 작업 위임",
       "Jenkins 실패 로그 분석",

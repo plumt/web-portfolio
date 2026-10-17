@@ -1,4 +1,5 @@
 ---
+import { careerYear } from "../config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Item from "../components/Item.astro";
 import SectionHead from "../components/SectionHead.astro";
@@ -6,7 +7,7 @@ import { lemon, openit } from "../data";
 ---
 
 <BaseLayout title="Experience" sideBarActiveItemID="cv">
-  <SectionHead num="01" title="경력" desc="모바일 앱 개발자 · 총 5년+" />
+  <SectionHead num="01" title="경력" desc={`모바일 앱 개발자 · ${careerYear()}년차`} />
 
   <div class="company-head">
     <h3>{lemon.company}</h3>
