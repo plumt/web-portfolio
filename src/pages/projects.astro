@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Item from "../components/Item.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { PROFILE } from "../config";
+import { apps, firebase } from "../data";
+---
+
+<BaseLayout title="Apps" sideBarActiveItemID="projects">
+  <SectionHead eyebrow="Apps" title="직접 만든 앱" desc="Kotlin과 Jetpack Compose로 만든 Android 앱 6개. 로또 앱과 달 앱은 실제로 가장 활발히 사용 중이고, 나머지는 준비 단계입니다." />
+
+  <div class="card-grid cols-2">
+    {apps.map((a) => (
+      <Item title={a.name} url={a.url} chips={a.chips} pills={a.live ? [{ text: "사용 중", live: true }] : []}><p>{a.desc}</p></Item>
+    ))}
+  </div>
+
+  <section class="sec">
+    <SectionHead eyebrow="Architecture" title="모듈 구조" desc="Clean Architecture와 모듈 구조로 Gradle 모듈 135개를 운영합니다." />
+    <Item title="빌드가 지키는 설계" url={`${PROFILE.docsRepo}/blob/main/ARCHITECTURE.md`}>
+      <ul>
+        <li>의존 방향(apps → shared/feature → shared/core)을 문서가 아니라 빌드(Convention Plugin의 Guard)가 강제</li>
+        <li>출시 후에야 드러나는 오류(빈 키, 테스트 광고 ID, 서명 누락)를 빌드 전에 차단</li>
+        <li>API 키 같은 런타임 값은 NDK로 숨김</li>
+      </ul>
+    </Item>
+  </section>
+
+  <section class="sec">
+    <SectionHead eyebrow="Backend" title="Firebase로 구성한 서비스" desc="앱 개발자로서 백엔드와 프론트를 Firebase로 구성했습니다. 서비스 준비 단계이고, 로또 앱과 달 앱이 가장 활발히 쓰입니다." />
+    <div class="card-grid cols-2">
+      {firebase.map((f) => <Item title={f.title}><p>{f.desc}</p></Item>)}
+    </div>
+  </section>
+</BaseLayout>

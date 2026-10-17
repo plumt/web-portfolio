@@ -1,0 +1,15 @@
+---
+const { title, meta, url, pills = [], chips = [], bullets = [], target = "_blank" } = Astro.props;
+const Tag = url ? "a" : "div";
+const left = [meta, ...pills.map((p) => p.text)].filter(Boolean).join(" · ");
+---
+
+<Tag class="pcard" {...(url ? { href: url, target } : {})}>
+  <div class="meta">{left}</div>
+  <div class="body">
+    <h3>{title}</h3>
+    <slot />
+    {bullets.length > 0 && <ul>{bullets.map((b) => <li>{b}</li>)}</ul>}
+    {chips.length > 0 && <div class="tech">{chips.join(" · ")}</div>}
+  </div>
+</Tag>

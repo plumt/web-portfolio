@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Item from "../components/Item.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { PROFILE } from "../config";
+import { apps, stats, lemon, infra } from "../data";
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <section class="hero-wrap">
+    <span class="hero-eyebrow"><span class="dot"></span>레몬헬스케어 재직 중</span>
+    <h1 class="hero-title">
+      안녕하세요,<br /><span class="gradient-text">모바일 앱 개발자</span> 이윤성입니다
+    </h1>
+    <p class="hero-sub">
+      Android를 주력으로 KMP로 AOS·iOS를 함께 만듭니다. 클린 아키텍처로 앱을 모듈 단위로 조립하고,
+      CI/CD와 테스트 같은 반복 업무는 AI가 처리하도록 자동화하는 데 관심이 많습니다.
+    </p>
+    <div class="hero-links">
+      <a href={`mailto:${PROFILE.email}`}>Contact</a>
+      <a href={PROFILE.github} target="_blank">GitHub</a>
+      <a href={PROFILE.velog} target="_blank">Blog</a>
+    </div>
+    <div class="stat-grid">
+      {stats.map((s) => (
+        <div class="stat-tile"><div class="stat-num">{s.num}</div><div class="stat-label">{s.label}</div></div>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec">
+    <SectionHead eyebrow="Now" title="지금 하는 일" desc="레몬헬스케어에서 KMP로 AOS·iOS 앱을 개발하고, AI로 개발 과정을 자동화하고 있습니다." />
+    <div class="card-grid cols-2">
+      {lemon.items.slice(0, 4).map((i) => (
+        <Item title={i.title} meta={i.meta} chips={i.chips}><p>{i.desc}</p></Item>
+      ))}
+    </div>
+    <p class="mt-4"><a class="text-link" href="/cv">경력 전체 보기 →</a></p>
+  </section>
+
+  <section class="sec">
+    <SectionHead eyebrow="Apps" title="직접 만든 앱" desc="Android 앱 6개를 하나의 모노레포로 관리합니다. 소스는 비공개이고 구조와 설계를 문서로 공개했습니다." />
+    <div class="card-grid cols-2">
+      {apps.map((a) => (
+        <Item title={a.name} url={a.url} chips={a.chips} pills={a.live ? [{ text: "사용 중", live: true }] : []}><p>{a.desc}</p></Item>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec">
+    <SectionHead eyebrow="Infra & AI" title="만들고 운영하는 것" desc="CI/CD, 홈서버, 메신저, 로컬 LLM, AI 하네스를 직접 구성하고 있습니다." />
+    <div class="card-grid cols-2">
+      {infra.slice(0, 4).map((i) => (
+        <Item title={i.title} meta={i.meta} chips={i.chips}>{i.desc && <p>{i.desc}</p>}</Item>
+      ))}
+    </div>
+    <p class="mt-4"><a class="text-link" href="/lab">자세히 보기 →</a></p>
+  </section>
+</BaseLayout>

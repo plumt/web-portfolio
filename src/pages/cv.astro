@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Item from "../components/Item.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { lemon, openit } from "../data";
+---
+
+<BaseLayout title="Experience" sideBarActiveItemID="cv">
+  <SectionHead eyebrow="Experience" title="경력" desc="모바일 앱 개발자 · 총 5년+" />
+
+  <div class="company-head" style="margin-top:1.5rem">
+    <h3>{lemon.company}</h3>
+    <span>{lemon.period} (재직 중)</span>
+  </div>
+  <div class="card-grid">
+    {lemon.items.map((i) => <Item title={i.title} meta={i.meta} chips={i.chips} bullets={i.bullets ?? []}><p>{i.desc}</p></Item>)}
+  </div>
+
+  <div class="company-head">
+    <h3>{openit.company}</h3>
+    <span>{openit.period} ({openit.duration})</span>
+  </div>
+  <div class="card-grid">
+    {openit.items.map((i) => <Item title={i.title} meta={i.meta} chips={i.chips}><p>{i.desc}</p></Item>)}
+  </div>
+
+  <section class="sec">
+    <SectionHead eyebrow="Education" title="학력·자격" />
+    <div class="card-grid cols-2">
+      <Item title="동아대학교" meta="2014.03 - 2020.02"><p>컴퓨터공학 전공</p></Item>
+      <Item title="정보처리기사" meta="2019.11.22"><p>자격증</p></Item>
+    </div>
+  </section>
+
+  <section class="sec">
+    <SectionHead eyebrow="Skills" title="기술" />
+    <Item title="Mobile" chips={["Kotlin", "Jetpack Compose", "Kotlin Multiplatform", "Android", "React Native", "TypeScript"]} />
+    <Item title="Architecture" chips={["Clean Architecture", "멀티 모듈", "MVVM", "Hilt", "Coroutine / Flow", "Room"]} />
+    <Item title="Infra & AI" chips={["Firebase", "Jenkins", "Docker", "nginx", "Ollama", "AI 하네스"]} />
+  </section>
+</BaseLayout>

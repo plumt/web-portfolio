@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Item from "../components/Item.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { infra } from "../data";
+---
+
+<BaseLayout title="Infra & AI" sideBarActiveItemID="lab">
+  <SectionHead eyebrow="Infra & AI" title="만들고 운영하는 것" desc="업무 밖에서 직접 구성하고 운영하는 개발 환경과 AI 자동화입니다." />
+  <div class="card-grid">
+    {infra.map((i) => (
+      <Item title={i.title} meta={i.meta} chips={i.chips} bullets={i.bullets ?? []}>{i.desc && <p>{i.desc}</p>}</Item>
+    ))}
+  </div>
+</BaseLayout>
