@@ -14,11 +14,15 @@ export type Career = {
   chips: string[];
   links?: { label: string; url: string }[];
   env: [string, string][];
+  detail?: string; // Notion 메인 페이지의 프로젝트 서술문
+  tags?: string[]; // Notion 메인 페이지의 기술 태그
 };
 
 const base: Omit<Career, "env">[] = [
   {
     slug: "travit-rn",
+    detail: "React Native 기반의 크로스 플랫폼 앱 개발 및 운영을 담당했습니다. Atomic Design 패턴을 활용해 재사용 가능한 컴포넌트를 설계하여 개발 생산성을 높였습니다. TypeScript 채택으로 타입 안정성을 확보하고 런타임 오류를 크게 줄였으며, Firebase를 활용한 FCM 푸시 기능과 Crashlytics 기반의 오류 모니터링·해결 프로세스를 구축했습니다. 위치 기반 서비스를 이용한 길찾기 기능을 추가했고, 관련 정보를 스마트폰뿐 아니라 AR 안경에 전송하는 네이티브 모듈을 개발했습니다.",
+    tags: ["TypeScript", "Zustand", "React Query", "Firebase", "GitLab", "React Navigation", "mmkv", "geolocation"],
     title: "트래빗 TRAVIT (React Native)",
     period: "2023.09 - 2025.04",
     note: "스토어 출시",
@@ -53,6 +57,8 @@ const base: Omit<Career, "env">[] = [
   },
   {
     slug: "bpdiary",
+    detail: "건강 관리 서비스 앱 혈압다이어리의 기존 기능 개선 및 신규 기능 추가를 담당했습니다. MVC 패턴과 Java로 이미 개발된 앱이었고, 신규 기능 개발과 유지 보수, 일부 기능의 Java에서 Kotlin으로의 마이그레이션을 맡았습니다. Convert Java File to Kotlin File 기능을 바탕으로 진행하되 한 번에 모든 코드를 변환하지 않고 의존성이 적은 부분부터 차례로 리팩토링했습니다. 또한 나이스 본인 인증, 다국어 지원, 건강 정보를 차트로 보여 주는 시각화 작업을 진행했고, 최신 OS에 맞게 TargetSDK를 업데이트했습니다.",
+    tags: ["Java", "XML", "Kotlin", "Retrofit", "SQLite", "Hilt", "BluetoothGatt", "MVC", "SharedPreferences", "WebView", "GitLab", "DataBinding", "LiveData", "OkHttp"],
     title: "혈압다이어리 BPdiary",
     period: "2022.07 - 2024.08",
     summary: "건강 관리 앱의 기능 개선과 신규 기능을 맡은 장기 유지보수. 본인 인증, 다국어, 체성분 차트, 데이터 동기화를 개선했습니다.",
@@ -107,6 +113,8 @@ const base: Omit<Career, "env">[] = [
   },
   {
     slug: "travit-aos",
+    detail: "Kotlin 기반의 강원도 춘천 관광 안내 앱 개발을 담당했습니다. MVVM 패턴과 클린 아키텍처를 기반으로 유지 보수성을 높였고, 모듈화로 빌드 시간을 줄였습니다. Flow와 데이터 바인딩으로 반응형 UI 업데이트 패턴을 구현하고, 단방향 데이터 흐름 설계로 상태 관리를 단순화했습니다. 앱 안에 웹뷰를 넣어 웹과 네이티브 기능을 통합한 하이브리드 구조를 구현했고, FusedLocationProvider로 정확한 위치 정보를 얻고 Foreground Service를 추가해 백그라운드에서도 길찾기가 멈추지 않도록 했습니다. AR 안경 착용 시 시선을 방해하지 않는 UI를 개발해 길찾기 내용을 안경으로 실시간 확인할 수 있게 했습니다. Hilt로 의존성을 주입해 보일러플레이트를 줄였고, Coroutine과 Retrofit으로 비동기 네트워킹을 구성했습니다.",
+    tags: ["Kotlin", "XML", "MVVM", "Clean Architecture", "Hilt", "Coroutine", "Flow", "Retrofit", "OkHttp", "SharedPreferences", "Room", "DataBinding", "Firebase", "FusedLocation", "WebView", "Repository"],
     title: "트래빗 TRAVIT (Android)",
     period: "2023.03 - 2023.11",
     summary: "관광지 정보, 실시간 길 안내, AR 안경 연동 앱. 모듈화로 빌드 시간을 줄이고, Foreground Service로 백그라운드에서도 길 안내가 끊기지 않게 했습니다.",
@@ -135,6 +143,8 @@ const base: Omit<Career, "env">[] = [
   },
   {
     slug: "gcwtcf",
+    detail: "React Native 기반의 크로스 플랫폼 앱 개발 및 운영을 진행했습니다. TypeScript 도입으로 타입 안정성을 확보하고 런타임 오류를 줄였으며, Zustand로 상태 관리 프로세스를 구축했습니다. Firebase를 활용해 행사 일정 변경 사항, 공지사항, 주요 알림 등을 실시간으로 확인할 수 있게 했고, CodePush로 사용자 세션을 방해하지 않는 백그라운드 업데이트 메커니즘을 도입했습니다. 지도를 통해 경기장 정보, 인근 관광지와 편의시설 안내, 도보 길찾기를 제공했고, 다국어를 지원해 국제 참가자의 접근성을 높였습니다.",
+    tags: ["TypeScript", "Zustand", "React Query", "React Navigation", "Firebase", "GitLab"],
     title: "강원·춘천 세계태권도문화축제",
     period: "2023.05 - 2023.08",
     summary: "강원도, 춘천시, 세계태권도연맹과 협력한 공식 행사 앱. 일정·공지 실시간 알림, 경기장·관광지 지도, 다국어를 지원했습니다.",
@@ -268,6 +278,8 @@ const base: Omit<Career, "env">[] = [
   },
   {
     slug: "tram",
+    detail: "Kotlin 기반의 트램(노면전차) 승하차 판단 앱 개발을 담당했습니다. BluetoothGatt로 비콘 신호 스캔과 데이터 처리 시스템을 구현했고, FusedLocationProvider에서 GPS 데이터를 얻어 RSSI와 신호 패턴 분석으로 승차·하차·주행 상태 감지 알고리즘을 개발했습니다. LiveData와 데이터 바인딩으로 반응형 UI 업데이트 패턴을 구현하고, MVVM 패턴의 단방향 데이터 흐름 설계로 상태 관리를 단순화했습니다. Koin으로 의존성을 주입해 보일러플레이트를 줄였고, Coroutine과 Retrofit으로 비동기 네트워킹을 구성했습니다.",
+    tags: ["Kotlin", "XML", "Coroutine", "Koin", "Retrofit", "BluetoothGatt", "LiveData", "DataBinding", "MVVM", "GitHub", "SharedPreferences", "FusedLocation", "OkHttp"],
     title: "트램 Tram",
     period: "2021.08 - 2021.10",
     summary: "BLE 비콘 신호와 GPS로 트램 승차·하차·주행 상태를 판단하는 앱. 비콘 스캔과 RSSI 패턴 분석 알고리즘을 구현했습니다.",
@@ -320,6 +332,8 @@ const base: Omit<Career, "env">[] = [
   },
   {
     slug: "alchera",
+    detail: "Kotlin 기반의 안면인식 SDK를 활용한 어린이집 전용 등하원 관리 솔루션 앱 개발을 담당했습니다. Room 데이터베이스로 로컬 우선 데이터 아키텍처를 설계했고, 가로·세로 모드마다 최적화된 듀얼 레이아웃 시스템을 도입해 모든 환경에 대비했습니다. Alchera SDK 연동을 위한 효율적인 카메라 프리뷰와 이미지 처리 파이프라인을 구현했으며, LiveData와 데이터 바인딩으로 반응형 UI 업데이트 패턴을 구현했습니다. MVVM 패턴의 단방향 데이터 흐름으로 상태 관리를 단순화했고, Koin으로 의존성을 주입해 보일러플레이트를 줄였으며, RxJava와 Retrofit으로 비동기 네트워킹을 구성했습니다.",
+    tags: ["Kotlin", "XML", "RxJava", "Koin", "Retrofit", "OkHttp", "Room", "Alchera SDK", "LiveData", "DataBinding", "CameraX", "SharedPreferences", "MVVM", "GitHub"],
     title: "안면인식 어린이집 출결관리",
     period: "2021.01 - 2021.06",
     summary: "안면인식 SDK 기반 등하원 관리 앱. 오프라인에서도 동작하는 로컬 우선 데이터 구조와 가로·세로 듀얼 레이아웃을 설계했습니다.",

@@ -37,13 +37,6 @@ const shots = Object.entries(all)
     <dl>{c.stack.map(([k, v]) => <div class="stack-row"><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
   </section>
 
-  {c.env.length > 0 && (
-    <section class="detail-sec">
-      <h2>개발 환경</h2>
-      <dl>{c.env.map(([k, v]) => <div class="stack-row"><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-    </section>
-  )}
-
   {shots.length > 0 && (
     <section class="detail-sec">
       <h2>스크린샷</h2>

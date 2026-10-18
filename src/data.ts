@@ -116,18 +116,18 @@ export const infra = [
       "프록시 설정 적용 시 검증에 실패하면 이전 설정으로 자동 복구",
       "메신저 DB 백업·복원 스크립트와 로그인 시 자동 시작 구성, 프로세스는 pm2로 관리",
     ],
-    chips: ["nginx", "Docker", "PostgreSQL", "pm2", "launchd", "Shell"],
+    chips: ["nginx", "Docker", "pm2", "launchd", "Shell"],
   },
   {
     title: "로컬 LLM",
-    meta: "Ollama",
+    meta: "Ollama · MLX",
     desc: "gpt-oss, gemma, qwen, deepseek-coder 등 여러 모델을 로컬에서 돌려 보고, 작업 성격에 맞는 모델을 고릅니다.",
     bullets: [
-      "긴 로그와 코드를 다루도록 컨텍스트를 늘린 모델을 따로 구성하고 llama.cpp도 병행",
+      "긴 로그와 코드를 다루도록 컨텍스트를 늘린 모델을 따로 구성",
       "Jenkins 실패 로그 분석과 수정 시도, 단순 작업을 서브 에이전트에 위임하는 용도로 사용",
       "예정: 유닛·UI 테스트와 헬스 체크를 24시간 반복 실행",
     ],
-    chips: ["Ollama", "llama.cpp", "gpt-oss", "Gemma", "Qwen"],
+    chips: ["Ollama", "MLX", "gpt-oss", "Gemma", "Qwen"],
   },
   {
     title: "AI 개발 하네스",
