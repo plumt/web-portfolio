@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yslee.kr/sitemap-index.xml
+Sitemap: https://portfolio.yslee.kr/sitemap-index.xml
