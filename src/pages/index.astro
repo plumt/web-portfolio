@@ -41,7 +41,7 @@ import { apps, stats, lemon, infra } from "../data";
     <SectionHead num="02" title="만든 앱" desc="Android 앱 6개를 하나의 모노레포로 관리합니다. 소스는 비공개이고 구조와 설계를 문서로 공개했습니다." />
     <div class="card-grid">
       {apps.map((a, n) => (
-        <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} tone={n % 6}><p>{a.desc}</p></Item>
+        <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} image={a.image} tone={n % 6}><p>{a.desc}</p></Item>
       ))}
     </div>
   </section>

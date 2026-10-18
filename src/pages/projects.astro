@@ -4,9 +4,6 @@ import Item from "../components/Item.astro";
 import SectionHead from "../components/SectionHead.astro";
 import { PROFILE } from "../config";
 import { apps, firebase } from "../data";
-
-const icons = import.meta.glob("../assets/apps/*.png", { eager: true, query: "?url", import: "default" }) as Record<string, string>;
-const iconOf = (path: string) => icons[`../assets/apps/${path}.png`];
 ---
 
 <BaseLayout title="Apps" sideBarActiveItemID="projects">
@@ -14,7 +11,7 @@ const iconOf = (path: string) => icons[`../assets/apps/${path}.png`];
 
   <div class="card-grid">
     {apps.map((a, n) => (
-      <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} image={iconOf(a.path)} tone={n % 6}><p>{a.desc}</p></Item>
+      <Item title={a.name} url={a.url} chips={a.chips} icon={a.name[0]} image={a.image} tone={n % 6}><p>{a.desc}</p></Item>
     ))}
   </div>
 

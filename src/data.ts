@@ -1,6 +1,9 @@
 import { PROFILE, careerYear } from "./config";
 import { careers } from "./careers";
 
+// 앱 아이콘은 src/assets/apps/<path>.png 가 있는 앱만 표시한다.
+const appIcons = import.meta.glob("./assets/apps/*.png", { eager: true, query: "?url", import: "default" }) as Record<string, string>;
+
 export const apps = [
   { name: "Lottomate", path: "lottomate", desc: "로또 번호 관리, 당첨 확인, 통계, 당첨 푸시 알림. 종이 티켓 느낌의 Paper 컴포넌트로 화면을 통일했습니다.", chips: ["Compose", "Room", "FCM"] },
   { name: "Lunar", path: "lunar", desc: "달 위상 대시보드와 달력, 달 이벤트 알림.", chips: ["Compose", "FCM"] },
@@ -8,7 +11,7 @@ export const apps = [
   { name: "Diding", path: "diding", desc: "알람 기반 TODO·일정 관리.", chips: ["Compose"] },
   { name: "Moduta", path: "moduta", desc: "서울시 버스 실시간 정보와 지도.", chips: ["Compose"] },
   { name: "Fxrate", path: "fxrate", desc: "환율 조회와 임계값 알림, 홈 위젯.", chips: ["Compose"] },
-].map((a) => ({ ...a, url: `${PROFILE.docsRepo}/tree/main/apps/${a.path}` }));
+].map((a) => ({ ...a, url: `${PROFILE.docsRepo}/tree/main/apps/${a.path}`, image: appIcons[`./assets/apps/${a.path}.png`] as string | undefined }));
 
 
 export const lemon = {
