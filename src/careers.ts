@@ -1,0 +1,346 @@
+// 오픈잇 재직 중 수행한 프로젝트의 경력기술서 내용. 목록은 cv 페이지, 상세는 cv/[slug] 페이지에서 쓴다.
+// 스크린샷은 src/assets/projects/<slug>/ 아래 이미지 파일을 파일명 순으로 자동 표시한다.
+export type Career = {
+  slug: string;
+  title: string;
+  period: string;
+  note?: string; // 목록 meta 뒤에 붙는 짧은 상태(스토어 출시 등)
+  summary: string;
+  overview: string;
+  team: string;
+  role: string[];
+  work: string[];
+  stack: [string, string][];
+  chips: string[];
+  links?: { label: string; url: string }[];
+};
+
+export const careers: Career[] = [
+  {
+    slug: "travit-rn",
+    title: "트래빗 TRAVIT (React Native)",
+    period: "2023.09 - 2025.04",
+    note: "스토어 출시",
+    summary: "춘천 지역 AR 스마트 안경 길 안내, 관광지 도슨트, 전기 자전거 대여 앱. 길 안내 정보를 AR 안경으로 전송하는 네이티브 모듈을 만들고, FCM 푸시와 Crashlytics 오류 모니터링 체계를 구축했습니다.",
+    overview: "강원도 춘천 지역에서 AR 스마트 안경 실시간 길 안내, 관광지 도슨트, 전기 자전거 대여를 제공하는 크로스 플랫폼 앱입니다. Google Play와 App Store에 출시했습니다.",
+    team: "3인 개발팀",
+    role: [
+      "네이티브 모듈과 SDK 통합 전담",
+      "네이티브 브릿지 개발과 성능 병목 개선",
+      "위치 기반 서비스와 지도 기능 구현",
+    ],
+    work: [
+      "Atomic Design으로 재사용 컴포넌트를 구성하고, 멀티 스택 네비게이션과 TypeScript를 적용",
+      "Naver Maps SDK 네이티브 모듈을 Java/Objective-C로 확장해 React Native에 통합하고, 주변 시설 안내와 경로 안내를 구현",
+      "실시간 위치와 방향 데이터를 AR 안경으로 보내는 네이티브 모듈 개발 (경로, 남은 거리, 날씨, 도슨트 안내 표시)",
+      "FCM 타겟팅 푸시와 클릭 시 화면 이동, Firebase Dynamic Links 기반 공유와 딥링크 스키마 설계",
+      "Kakao, Google, Apple 소셜 로그인과 회원 관리, Google Fit·Apple HealthKit 연동으로 걸음 수, 이동 거리, 칼로리 제공",
+      "CodePush로 스토어 심사 없이 업데이트를 배포하고, Firebase Crashlytics로 오류 모니터링과 우선순위별 대응 절차 구축",
+    ],
+    stack: [
+      ["프레임워크", "React Native, TypeScript"],
+      ["상태 관리·패턴", "Zustand, React Query, Atomic Design, Custom Hook"],
+      ["지도·위치", "Naver Maps SDK, Geolocation API"],
+      ["인증·메시징", "Firebase Authentication, OAuth 2.0(Kakao, Google, Apple), FCM, Dynamic Links"],
+      ["배포·건강 데이터", "CodePush, Google Fit API, Apple HealthKit"],
+    ],
+    chips: ["React Native", "TypeScript", "Zustand", "React Query", "Firebase"],
+    links: [
+      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=kr.co.openit.travit" },
+      { label: "App Store", url: "https://apps.apple.com/kr/app/id6477498967" },
+    ],
+  },
+  {
+    slug: "bpdiary",
+    title: "혈압다이어리 BPdiary",
+    period: "2022.07 - 2024.08",
+    summary: "건강 관리 앱의 기능 개선과 신규 기능을 맡은 장기 유지보수. 본인 인증, 다국어, 체성분 차트, 데이터 동기화를 개선했습니다.",
+    overview: "건강 관리 앱 '혈압다이어리'의 기존 기능 개선과 신규 기능 추가를 맡은 장기 유지보수 프로젝트입니다.",
+    team: "Android 1인",
+    role: [
+      "앱 유지보수와 기능 개선 전담",
+      "요구사항 분석과 구현 우선순위 결정",
+      "성능 최적화와 버그 수정, 다국어 리소스 관리",
+    ],
+    work: [
+      "나이스 본인확인 서비스 연동으로 휴대폰 번호 기반 인증 구현, 예외 상황별 오류 처리",
+      "체성분 데이터 입력과 변화 추이 그래프, 목표 설정, 혈압 데이터와의 비교 화면 개발",
+      "영어, 일본어, 중국어 등 다국어 리소스 체계와 언어 변경 시 즉시 반영, 날짜·단위 현지화",
+      "MinSDK/TargetSDK 상향과 Android 버전별 권한 처리 개선, 레거시 코드 리팩토링",
+      "로컬 DB와 서버 DB 불일치 해결을 위한 동기화 로직, 네트워크 상태별 우선순위와 오프라인 캐싱 개선",
+      "의존성이 적은 부분부터 Java를 Kotlin으로 단계적으로 전환",
+    ],
+    stack: [
+      ["언어·구조", "Java, Kotlin, MVC"],
+      ["네트워크·저장", "Retrofit2, SharedPreferences, SQLite"],
+      ["UI·연동", "XML, WebView, BluetoothGatt, Hilt"],
+      ["인증", "나이스 본인확인 서비스"],
+    ],
+    chips: ["Java", "Kotlin", "BluetoothGatt", "Retrofit", "Hilt"],
+  },
+  {
+    slug: "hdt",
+    title: "감정노동자 HDT",
+    period: "2023.07 - 2024.01",
+    summary: "콜센터 상담원의 건강과 근무 환경을 모니터링하는 앱. Fitbit, 환경센서, 안면인식을 연동해 출퇴근을 자동화했습니다.",
+    overview: "콜센터 상담원의 건강 상태와 근무 환경을 모니터링하고 출퇴근을 자동화하는 Android 앱입니다. Fitbit 웨어러블, 환경센서, 안면인식을 연동했습니다.",
+    team: "Android 1인",
+    role: [
+      "앱 설계와 개발 전담",
+      "다중 IoT 기기 연동과 데이터 통합",
+      "생체·환경 정보 수집과 모니터링 구현",
+    ],
+    work: [
+      "MVVM과 Clean Architecture, Hilt, 단방향 데이터 흐름으로 구조 구성",
+      "BLE GATT로 환경센서와 통신해 미세먼지, CO2, 온도, 습도를 주기적으로 수집하고 서버와 동기화",
+      "Fitbit Web API와 OAuth 2.0으로 심박수, 걸음 수, 수면, 스트레스 데이터를 수집하고 동기화 부하 감소",
+      "Alchera 안면인식 SDK 기반 비접촉 출퇴근과 얼굴 데이터 암호화 저장, 기존 ID/PW 로그인과 병행",
+      "FCM 알림 구축, Data Binding과 LiveData 기반 UI, 접근성 개선",
+    ],
+    stack: [
+      ["언어·구조", "Kotlin, MVVM, Hilt, Coroutine, Flow"],
+      ["네트워크·저장", "Retrofit2, OkHttp3, SharedPreferences, Room"],
+      ["연동", "BluetoothGatt, Fitbit SDK, Alchera SDK, 환경센서 API"],
+    ],
+    chips: ["Kotlin", "MVVM", "Hilt", "BluetoothGatt", "Fitbit"],
+  },
+  {
+    slug: "travit-aos",
+    title: "트래빗 TRAVIT (Android)",
+    period: "2023.03 - 2023.11",
+    summary: "관광지 정보, 실시간 길 안내, AR 안경 연동 앱. 모듈화로 빌드 시간을 줄이고, Foreground Service로 백그라운드에서도 길 안내가 끊기지 않게 했습니다.",
+    overview: "강원도 춘천 관광 활성화를 위한 Android 네이티브 앱입니다. AR 스마트 안경 연동, 관광지 정보, 실시간 길 안내, 도슨트, 전기 자전거 대여를 제공합니다.",
+    team: "Android 1인",
+    role: [
+      "앱 설계와 개발 전담",
+      "AR 안경 화면 UI 설계와 구현",
+      "위치 기반 서비스와 내비게이션 개발",
+      "웹과 네이티브를 함께 쓰는 하이브리드 구조 설계",
+    ],
+    work: [
+      "MVVM에 Clean Architecture를 적용해 모듈을 분리하고, Hilt와 Flow 기반으로 구성",
+      "안경 착용자의 시야를 가리지 않는 경량 UI와 배터리를 고려한 렌더링 구성",
+      "FusedLocationProvider와 Naver Map SDK로 경로 안내, 경로 이탈 감지와 재탐색, 주변 관광지 자동 안내",
+      "WebView와 JavaScript Interface로 웹 컴포넌트와 네이티브 기능 간 양방향 통신 구성",
+      "FCM 상황별 알림과 딥링크, Dynamic Links 공유, Kakao·Google·Naver 소셜 로그인",
+    ],
+    stack: [
+      ["언어·구조", "Kotlin, MVVM, Clean Architecture, Hilt, Coroutine, Flow"],
+      ["네트워크·저장", "Retrofit2, OkHttp3, Room, SharedPreferences"],
+      ["UI·지도", "XML, Data Binding, View Binding, Naver Map, FusedLocationProvider"],
+      ["연동", "WebView, FCM, Dynamic Links, 소셜 로그인(Kakao, Google, Naver)"],
+    ],
+    chips: ["Kotlin", "MVVM", "Clean Architecture", "Hilt", "Coroutine/Flow", "Room"],
+  },
+  {
+    slug: "gcwtcf",
+    title: "강원·춘천 세계태권도문화축제",
+    period: "2023.05 - 2023.08",
+    summary: "강원도, 춘천시, 세계태권도연맹과 협력한 공식 행사 앱. 일정·공지 실시간 알림, 경기장·관광지 지도, 다국어를 지원했습니다.",
+    overview: "강원도, 춘천시, 세계태권도연맹(WT)과 협력해 만든 2023 강원 춘천 세계태권도문화축제 공식 앱입니다. 행사 일정, 경기장과 관광지 안내, 실시간 알림, 길 안내를 제공합니다.",
+    team: "3인 개발팀",
+    role: [
+      "네이티브 모듈 통합과 위치 기반 서비스 담당",
+      "실시간 업데이트와 푸시 알림 시스템 구축",
+      "대회 기간 앱 운영과 긴급 이슈 대응, 스토어 배포와 CodePush 관리",
+    ],
+    work: [
+      "Naver Maps SDK와 네이티브 모듈을 React Native에 통합하고 경기장, 관광지, 편의시설을 지도에 표시",
+      "보행자 길 안내, 경로 이탈 감지와 재탐색, 남은 시간·거리 계산, 다국어 음성 안내",
+      "FCM 실시간 알림과 딥링크, 긴급 공지 우선 알림",
+      "CodePush 무중단 업데이트와 업데이트 성공률 모니터링, 롤백 전략",
+      "Java, Objective-C로 네이티브 SDK 확장 모듈을 만들고 React Native 브릿지로 연결",
+    ],
+    stack: [
+      ["프레임워크", "React Native, TypeScript"],
+      ["상태 관리", "Zustand, React Query"],
+      ["지도·알림·배포", "Naver Maps SDK, Geolocation API, FCM, CodePush"],
+    ],
+    chips: ["React Native", "TypeScript", "Zustand", "Firebase", "CodePush"],
+  },
+  {
+    slug: "keepwell",
+    title: "KeepWell",
+    period: "2022.03 - 2023.03",
+    note: "2022.03-06, 2022.11-2023.03 (총 7개월)",
+    summary: "SK C&C와 협력한 건강관리 플랫폼. 만보기 포인트, 건강검진 데이터 연동, AI 식단 분석을 React Native로 개발했습니다.",
+    overview: "SK C&C와 협력해 개발한 건강관리 플랫폼입니다. 만보기 기반 포인트 적립, 국민건강보험 건강검진 데이터 연동, 이미지 기반 식단 분석을 제공하는 크로스 플랫폼 앱입니다.",
+    team: "2인 개발팀",
+    role: [
+      "주요 기능 모듈 개발",
+      "네이티브 SDK의 React Native 브릿지 모듈 개발",
+      "건강 데이터 연동과 시각화 컴포넌트 구현",
+      "WebView와 네이티브 인터페이스 설계",
+    ],
+    work: [
+      "푸드렌즈 네이티브 SDK를 브릿지로 연결해 음식 이미지 인식과 영양소 분석 결과를 앱 데이터와 연동",
+      "Google Fit, Apple HealthKit 걸음 수 수집과 활동 차트, 걸음 수 기반 포인트 적립",
+      "국민건강보험 API로 건강검진 결과를 조회하고 암호화 처리 후 추이 시각화",
+      "FCM 타겟팅 알림과 딥링크, 건강 목표 달성 알림",
+      "네이티브 성능이 필요한 기능과 웹 콘텐츠를 나누는 하이브리드 구조",
+    ],
+    stack: [
+      ["프레임워크", "React Native"],
+      ["상태 관리", "Zustand, React Query"],
+      ["연동", "WebView, Google Fit API, Apple HealthKit, 푸드렌즈 SDK, FCM"],
+    ],
+    chips: ["React Native", "Zustand", "React Query", "HealthKit", "Google Fit"],
+  },
+  {
+    slug: "openrider",
+    title: "오픈라이더 Openrider",
+    period: "2022.07 - 2022.12",
+    summary: "자전거 라이딩 앱의 기능 고도화와 AR 기기 연동. 지오펜싱 기반 안내와 AR 디스플레이 내비게이션을 추가했습니다.",
+    overview: "자전거 라이딩 지원 앱 '오픈라이더'의 기능을 고도화하고 AR 기기와 연동한 프로젝트입니다. 위치 기반 관광 정보, 위험 구간 알림, AR 디스플레이 내비게이션을 추가했습니다.",
+    team: "Android 1인",
+    role: [
+      "추가 기능 설계와 구현",
+      "AR 기기 연동과 데이터 인터페이스 개발",
+      "위치 기반 서비스 로직 개선",
+    ],
+    work: [
+      "Geofencing으로 관광지와 위험 구간의 진입·이탈을 감지하고, 주행 속도에 맞춰 TTS 안내",
+      "USB 기반 AR 기기 통신 인터페이스와, 방향·속도·거리·시간을 제한된 표시 영역에 맞춰 보여주는 UI",
+      "다양한 화면 비율과 Android 6.0~13 버전 대응을 위한 API 분기 처리",
+      "ANR과 크래시 유발 코드 개선, 메모리 누수 방지, 백그라운드 서비스 최적화로 배터리 소모 감소",
+      "테스트 케이스를 만들어 다양한 기기와 OS 버전에서 검증",
+    ],
+    stack: [
+      ["언어·구조", "Kotlin, Java, MVC"],
+      ["위치·통신", "LocationManager, Geofencing, UsbDevice API, BluetoothGatt"],
+      ["저장·음성", "SQLite, SharedPreferences, TextToSpeech"],
+    ],
+    chips: ["Kotlin", "Java", "Geofencing", "USB", "TTS"],
+  },
+  {
+    slug: "petoring",
+    title: "펫토링 Petoring",
+    period: "2022.07 - 2022.09",
+    summary: "반려동물 산책 도우미 앱. React Native와 WebView를 조합한 하이브리드 구조와 안드로이드 백그라운드 위치 서비스를 구현했습니다.",
+    overview: "반려동물과 보호자를 위한 산책 도우미 앱입니다. 산책 경로 추천, 주변 펫 친화 시설 안내, 산책 기록 관리를 제공합니다. 웹 프론트엔드 팀과 협업하는 하이브리드 구조입니다.",
+    team: "모바일 1인",
+    role: [
+      "크로스 플랫폼 앱 개발",
+      "웹 프론트엔드 팀과의 인터페이스 설계",
+      "위치 추적과 푸시 알림 네이티브 모듈 개발, 안드로이드 백그라운드 서비스 구현",
+    ],
+    work: [
+      "WebView와 네이티브 간 양방향 통신 브릿지로 웹 UI와 네이티브 기능을 분리",
+      "Geolocation API로 산책 경로를 기록하고 시각화",
+      "Foreground Service 기반 백그라운드 위치 추적, 위치 수집 주기 조정으로 배터리 소모 감소",
+      "FCM 푸시와 위치 기반 알림(주변 시설, 산책 시간), 알림 설정 관리",
+      "스플래시와 로딩 표시, 네이티브 팝업, WebView 캐싱으로 화면 전환 지연 최소화",
+    ],
+    stack: [
+      ["프레임워크", "React Native, WebView, JavaScript Interface"],
+      ["위치·알림", "Geolocation API, Background Location Service, FCM"],
+      ["저장", "AsyncStorage, Firebase"],
+    ],
+    chips: ["React Native", "WebView", "Foreground Service", "FCM"],
+  },
+  {
+    slug: "yenam",
+    title: "예닮어린이집 DigitalTwin",
+    period: "2022.01 - 2022.06",
+    summary: "경기도 안전보육 플랫폼. 알림장, 출석부 등 보육 기능과 스마트밴드 연동 야외활동 안전 관리를 구현했습니다.",
+    overview: "경기도 특화 안전보육 플랫폼입니다. 알림장, 앨범, 출석부, 일정표, 투약의뢰, 공지사항을 디지털화하고 스마트밴드를 연동한 야외활동 안전 관리를 제공합니다.",
+    team: "2인 개발팀",
+    role: [
+      "주요 기능 모듈 개발",
+      "스마트밴드 블루투스 통신과 데이터 처리",
+      "백그라운드 서비스 설계, API 통합과 데이터 모델 설계",
+    ],
+    work: [
+      "MVVM 구조로 알림장, 앨범, 출석부, 일정표, 투약의뢰, 공지사항 화면 구현",
+      "BluetoothGatt로 다중 스마트밴드 연결과 데이터 교환, 연결 상태 모니터링과 자동 재연결",
+      "MQTT 기반 실시간 메시징으로 스마트밴드 데이터를 서버와 동기화하고 긴급 알림과 공지 전파",
+      "Foreground Service와 BroadcastReceiver로 안정적인 백그라운드 처리",
+      "FusedLocation과 지오펜싱으로 교사·아동 위치 추적과 안전 구역 이탈 감지",
+      "Retrofit2와 Coroutine API 계층, Koin 의존성 주입, Room 기반 오프라인 지원",
+    ],
+    stack: [
+      ["언어·구조", "Kotlin, MVVM, Coroutine, Koin"],
+      ["네트워크·저장", "Retrofit2, OkHttp3, Room, MQTT"],
+      ["연동", "BluetoothGatt, FusedLocationProvider, FCM"],
+    ],
+    chips: ["Kotlin", "MVVM", "Koin", "BluetoothGatt", "MQTT"],
+  },
+  {
+    slug: "tram",
+    title: "트램 Tram",
+    period: "2021.08 - 2021.10",
+    summary: "BLE 비콘 신호와 GPS로 트램 승차·하차·주행 상태를 판단하는 앱. 비콘 스캔과 RSSI 패턴 분석 알고리즘을 구현했습니다.",
+    overview: "BLE 비콘으로 트램(노면전차)의 승하차를 판단하는 앱입니다. 실시간 위치로 정류장을 식별하고 승차, 하차, 주행 상태를 자동으로 판단합니다.",
+    team: "2인 개발팀",
+    role: [
+      "주요 화면 개발과 BLE 통신 담당",
+      "비콘 스캔과 처리 로직, 승하차 판별 알고리즘 개발",
+      "API 통합과 인증 구현",
+    ],
+    work: [
+      "BluetoothGatt 비콘 스캔과, RSSI 값 및 신호 패턴 분석으로 정류장 판별",
+      "가속도 센서와 비콘 신호를 조합해 승차, 하차, 주행 상태 감지",
+      "홈, 공지사항, 고객센터, 이용안내, 운행 시간표, 탑승 내역 화면을 MVVM과 Data Binding으로 구현",
+      "OkHttp Interceptor 기반 헤더·토큰 관리, 자동 로그인과 토큰 갱신, 오류 처리와 재시도",
+      "Koin 의존성 주입과 기능별 모듈 분리",
+    ],
+    stack: [
+      ["언어·구조", "Kotlin, MVVM, Coroutine, Koin"],
+      ["네트워크·저장", "Retrofit2, OkHttp3, SharedPreferences"],
+      ["연동", "BluetoothGatt, FCM, Glide"],
+    ],
+    chips: ["Kotlin", "MVVM", "Koin", "BluetoothGatt", "FusedLocation"],
+  },
+  {
+    slug: "solar",
+    title: "태양광 Solar Energy",
+    period: "2021.03 - 2021.10",
+    summary: "AIoT 기반 태양광 발전소 통합관제 앱. 발전량과 수익 차트, 이상 징후 알림을 구현했습니다.",
+    overview: "태양광 발전소 소유주와 운영자를 위한 AIoT 기반 통합관제 Android 앱입니다. 실시간 발전량, 수익 현황, 이상 징후를 한 곳에서 관리할 수 있습니다.",
+    team: "2인 개발팀",
+    role: [
+      "주요 화면 개발과 데이터 시각화 담당",
+      "발전량·수익 분석 차트 구현",
+      "API 통합과 데이터 모델 설계, 앱 구조 설계",
+    ],
+    work: [
+      "MPAndroidChart로 연·월·일·시간별 발전량과 수익 추이 차트 구현, 대량 데이터 렌더링 최적화",
+      "홈, 수익관리, 발전량, 발전소 관리, 경보 목록, 공지사항, QnA 등 화면을 MVVM으로 구현",
+      "Repository 패턴과 UseCase 계층으로 비즈니스 로직 분리",
+      "Retrofit2와 RxJava 네트워크 계층, 토큰 기반 인증과 자동 갱신",
+      "발전소 센서 데이터 모니터링과 이상 징후 알림, 발전소 간 성능 비교 도구",
+    ],
+    stack: [
+      ["언어·구조", "Kotlin, MVVM, RxJava, Koin"],
+      ["네트워크·저장", "Retrofit2, OkHttp3, SharedPreferences"],
+      ["UI·알림", "MPAndroidChart, Data Binding, RecyclerView, FCM"],
+    ],
+    chips: ["Kotlin", "MVVM", "RxJava", "Koin", "MPAndroidChart"],
+  },
+  {
+    slug: "alchera",
+    title: "안면인식 어린이집 출결관리",
+    period: "2021.01 - 2021.06",
+    summary: "안면인식 SDK 기반 등하원 관리 앱. 오프라인에서도 동작하는 로컬 우선 데이터 구조와 가로·세로 듀얼 레이아웃을 설계했습니다.",
+    overview: "Alchera 안면인식 SDK를 활용한 어린이집 등하원 관리 앱입니다. 카메라 자동 인식으로 출결을 관리하며 오프라인에서도 동작합니다. 입사 후 처음 참여한 프로젝트입니다.",
+    team: "3인 개발팀",
+    role: [
+      "UI 개발과 로컬 데이터베이스 설계",
+      "디바이스 방향별 적응형 레이아웃",
+      "오프라인 데이터 관리, 카메라 인터페이스와 안면인식 연동 지원",
+    ],
+    work: [
+      "Room 기반 로컬 우선 구조로 네트워크와 무관하게 관리자·학생 데이터 CRUD가 동작하고, 동기화 충돌 해결과 주기·수동 동기화 구현",
+      "가로·세로 듀얼 레이아웃과 회전 대응, 카메라 위치에 따른 UI 조정",
+      "Alchera SDK 연동용 카메라 프리뷰와 이미지 처리 파이프라인, 장시간 카메라 사용 시 배터리 소모 최적화와 화면 번인 방지",
+      "관리자 계정과 권한, 학생 프로필·얼굴 데이터 관리, 출입 이력 조회",
+      "MVVM에 ViewModel, LiveData, Data Binding 적용",
+    ],
+    stack: [
+      ["언어·구조", "Kotlin, MVVM, RxJava"],
+      ["네트워크·저장", "Retrofit2, OkHttp3, Room, SQLite"],
+      ["UI·연동", "LiveData, Data Binding, CameraX, Glide, Alchera SDK"],
+    ],
+    chips: ["Kotlin", "MVVM", "Koin", "RxJava", "Room", "CameraX"],
+  },
+];

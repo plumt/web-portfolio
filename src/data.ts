@@ -1,4 +1,5 @@
 import { PROFILE, careerYear } from "./config";
+import { careers } from "./careers";
 
 export const apps = [
   { name: "Lottomate", path: "lottomate", desc: "로또 번호 관리, 당첨 확인, 통계, 당첨 푸시 알림. 종이 티켓 느낌의 Paper 컴포넌트로 화면을 통일했습니다.", chips: ["Compose", "Room", "FCM"] },
@@ -57,44 +58,13 @@ export const openit = {
   company: "오픈잇",
   period: "2020.12 - 2025.04",
   duration: "4년 5개월",
-  items: [
-    {
-      title: "트래빗 TRAVIT (React Native)",
-      meta: "2023.09 - 2025.04 · 스토어 출시",
-      desc: "춘천 지역 AR 스마트 안경 길 안내, 관광지 도슨트, 전기 자전거 대여 앱. 길 안내 정보를 AR 안경으로 전송하는 네이티브 모듈을 만들고, FCM 푸시와 Crashlytics 오류 모니터링 체계를 구축했습니다.",
-      chips: ["React Native", "TypeScript", "Zustand", "React Query", "Firebase"],
-    },
-    {
-      title: "트래빗 TRAVIT (Android)",
-      meta: "2023.03 - 2023.11",
-      desc: "관광지 정보, 실시간 길 안내, AR 안경 연동 앱. 모듈화로 빌드 시간을 줄이고, Foreground Service로 백그라운드에서도 길 안내가 끊기지 않게 했습니다.",
-      chips: ["Kotlin", "MVVM", "Clean Architecture", "Hilt", "Coroutine/Flow", "Room"],
-    },
-    {
-      title: "강원·춘천 세계태권도문화축제",
-      meta: "2023.05 - 2023.08",
-      desc: "강원도, 춘천시, 세계태권도연맹과 협력한 공식 행사 앱. 일정·공지 실시간 알림, 경기장·관광지 지도, 다국어를 지원했습니다.",
-      chips: ["React Native", "TypeScript", "Zustand", "Firebase", "CodePush"],
-    },
-    {
-      title: "혈압다이어리 BPdiary",
-      meta: "2022.07 - 2024.08",
-      desc: "건강 관리 앱의 기능 개선과 신규 기능을 맡은 장기 유지보수. 의존성이 적은 부분부터 Java를 Kotlin으로 단계적으로 옮기고, 본인 인증·다국어·체성분 차트·데이터 동기화를 개선했습니다.",
-      chips: ["Java", "Kotlin", "BluetoothGatt", "Retrofit", "Hilt"],
-    },
-    {
-      title: "트램 Tram",
-      meta: "2021.08 - 2021.10",
-      desc: "BLE 비콘 신호와 GPS로 트램 승차·하차·주행 상태를 판단하는 앱. 비콘 스캔과 RSSI 패턴 분석 알고리즘을 구현했습니다.",
-      chips: ["Kotlin", "MVVM", "Koin", "BluetoothGatt", "FusedLocation"],
-    },
-    {
-      title: "안면인식 어린이집 출결관리",
-      meta: "2021.01 - 2021.06",
-      desc: "안면인식 SDK 기반 등하원 관리 앱. 오프라인에서도 동작하는 로컬 우선 데이터 구조와 가로·세로 듀얼 레이아웃을 설계했습니다.",
-      chips: ["Kotlin", "MVVM", "Koin", "RxJava", "Room", "CameraX"],
-    },
-  ],
+  items: careers.map((c) => ({
+    slug: c.slug,
+    title: c.title,
+    meta: c.note ? `${c.period} · ${c.note}` : c.period,
+    desc: c.summary,
+    chips: c.chips,
+  })),
 };
 
 export const firebase = [

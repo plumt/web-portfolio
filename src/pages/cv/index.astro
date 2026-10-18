@@ -1,9 +1,9 @@
 ---
-import { careerYear } from "../config";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Item from "../components/Item.astro";
-import SectionHead from "../components/SectionHead.astro";
-import { lemon, openit } from "../data";
+import { careerYear } from "../../config";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Item from "../../components/Item.astro";
+import SectionHead from "../../components/SectionHead.astro";
+import { lemon, openit } from "../../data";
 ---
 
 <BaseLayout title="Experience" sideBarActiveItemID="cv">
@@ -22,7 +22,7 @@ import { lemon, openit } from "../data";
     <span>{openit.period} ({openit.duration})</span>
   </div>
   <div class="card-grid timeline">
-    {openit.items.map((i) => <Item title={i.title} meta={i.meta} chips={i.chips}><p>{i.desc}</p></Item>)}
+    {openit.items.map((i) => <Item title={i.title} meta={i.meta} chips={i.chips} url={`/cv/${i.slug}/`} target="_self"><p>{i.desc}</p></Item>)}
   </div>
 
 

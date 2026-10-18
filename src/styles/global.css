@@ -105,3 +105,21 @@ a.pcard h3::after { content: "↗"; font-size: .85rem; color: var(--muted); tran
   .sec { animation: rise .5s ease both; }
   @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 }
+
+/* 경력 상세 */
+a.pcard[target="_self"] h3::after { content: "→"; }
+.detail-back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; color: var(--muted); }
+.detail-back:hover { color: var(--accent); }
+.detail-meta { color: var(--muted); font-size: .95rem; margin-top: .4rem; }
+.detail-sec { margin-top: 2.5rem; }
+.detail-sec h2 { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; padding-bottom: .6rem; border-bottom: 1px solid var(--fg); }
+.detail-sec p { margin-top: .9rem; line-height: 1.8; }
+.detail-sec ul { margin: .9rem 0 0 1.1rem; list-style: disc; }
+.detail-sec ul li { line-height: 1.75; }
+.detail-sec ul li + li { margin-top: .35rem; }
+.stack-row { display: grid; grid-template-columns: 1fr; gap: .15rem 2rem; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 768px) { .stack-row { grid-template-columns: 9rem 1fr; } }
+.stack-row dt { color: var(--muted); font-size: .85rem; }
+.shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: .75rem; margin-top: .9rem; }
+.shots img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--line); }
+.detail-links a { margin-right: 1rem; color: var(--accent); }
