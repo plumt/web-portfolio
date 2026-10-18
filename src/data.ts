@@ -68,10 +68,10 @@ export const openit = {
 };
 
 export const firebase = [
-  { title: "FCM", desc: "로또 당첨 확인, 달 이벤트 같은 푸시 알림" },
-  { title: "Firestore", desc: "최신 당첨번호 등 앱 데이터 저장" },
+  { title: "FCM", desc: "푸시 알림 발송과 수신 처리" },
+  { title: "Firestore", desc: "앱 데이터 저장과 동기화" },
   { title: "Remote Config", desc: "앱 배포 없이 값과 동작 조정" },
-  { title: "Cloud Functions", desc: "당첨 확인·알림 발송, 관리자 API" },
+  { title: "Cloud Functions", desc: "서버 로직 실행, 알림 발송, 관리자 API" },
   { title: "Hosting", desc: "약관·정책 페이지와 관리자 웹" },
 ];
 

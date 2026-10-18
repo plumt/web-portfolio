@@ -8,6 +8,8 @@ export function getStaticPaths() {
 
 const { c } = Astro.props;
 const all = import.meta.glob("../../assets/projects/*/*.{jpg,jpeg,png,webp}", { eager: true, query: "?url", import: "default" });
+const logos = import.meta.glob("../../assets/logos/*.png", { eager: true, query: "?url", import: "default" });
+const logo = Object.entries(logos).find(([path]) => path.endsWith(`/logos/${c.slug}.png`))?.[1] as string | undefined;
 const shots = Object.entries(all)
   .filter(([path]) => path.includes(`/projects/${c.slug}/`))
   .sort(([a], [b]) => a.localeCompare(b))
@@ -16,7 +18,7 @@ const shots = Object.entries(all)
 
 <BaseLayout title={c.title} sideBarActiveItemID="cv">
   <a class="detail-back" href="/cv/">← Experience</a>
-  <h1 class="sec-title">{c.title}</h1>
+  <h1 class="sec-title detail-title">{logo && <img class="detail-logo" src={logo} alt="" />}<span>{c.title}</span></h1>
   <p class="detail-meta">오픈잇 · {c.period}{c.note ? ` · ${c.note}` : ""} · {c.team}</p>
 
   <section class="detail-sec">
@@ -31,14 +33,16 @@ const shots = Object.entries(all)
   </section>
 
   <section class="detail-sec">
-    <h2>주요 업무</h2>
-    <ul>{c.work.map((w) => <li>{w}</li>)}</ul>
-  </section>
-
-  <section class="detail-sec">
     <h2>기술 스택</h2>
     <dl>{c.stack.map(([k, v]) => <div class="stack-row"><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
   </section>
+
+  {c.env.length > 0 && (
+    <section class="detail-sec">
+      <h2>개발 환경</h2>
+      <dl>{c.env.map(([k, v]) => <div class="stack-row"><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+    </section>
+  )}
 
   {shots.length > 0 && (
     <section class="detail-sec">

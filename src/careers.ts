@@ -13,9 +13,10 @@ export type Career = {
   stack: [string, string][];
   chips: string[];
   links?: { label: string; url: string }[];
+  env: [string, string][];
 };
 
-export const careers: Career[] = [
+const base: Omit<Career, "env">[] = [
   {
     slug: "travit-rn",
     title: "트래빗 TRAVIT (React Native)",
@@ -344,3 +345,21 @@ export const careers: Career[] = [
     chips: ["Kotlin", "MVVM", "Koin", "RxJava", "Room", "CameraX"],
   },
 ];
+
+// 개발 환경 (프로젝트별로 기록이 있는 항목만)
+const env: Record<string, [string, string][]> = {
+  "travit-rn": [["OS", "macOS"], ["IDE", "Android Studio, Xcode, Visual Studio Code"], ["버전 관리", "Git, GitLab, SourceTree"], ["디자인 협업", "Figma"]],
+  bpdiary: [["OS", "macOS"], ["IDE", "Android Studio"], ["버전 관리", "Git, GitLab, SourceTree"], ["디자인 협업", "Sketch"]],
+  hdt: [["OS", "macOS"], ["IDE", "Android Studio"], ["버전 관리", "Git, GitLab, SourceTree"], ["디자인 협업", "Figma"]],
+  "travit-aos": [["OS", "macOS"], ["IDE", "Android Studio"], ["버전 관리", "GitLab, SourceTree"], ["디자인 협업", "Figma"]],
+  gcwtcf: [["OS", "macOS"], ["IDE", "Visual Studio Code, Android Studio, Xcode"], ["버전 관리", "GitLab, SourceTree"], ["디자인 협업", "Figma"]],
+  keepwell: [["OS", "macOS"], ["IDE", "Visual Studio Code, Android Studio, Xcode"], ["버전 관리", "GitLab, SourceTree"], ["디자인 협업", "Zeplin"]],
+  openrider: [["OS", "macOS"], ["IDE", "Android Studio"], ["버전 관리", "Git, GitLab, SourceTree"], ["테스트 환경", "다양한 Android 기기와 OS 버전"]],
+  petoring: [["IDE", "Visual Studio Code, Android Studio, Xcode"], ["버전 관리", "GitLab, SourceTree"], ["디자인 협업", "Sketch"]],
+  yenam: [["OS", "macOS"], ["IDE", "Android Studio"], ["버전 관리", "GitLab, SourceTree"], ["디자인 협업", "Zeplin"]],
+  tram: [["OS", "macOS"], ["IDE", "Android Studio"], ["버전 관리", "Git, SourceTree"], ["디자인 협업", "Zeplin"]],
+  solar: [["OS", "macOS"], ["IDE", "Android Studio"], ["버전 관리", "Git, SourceTree"], ["디자인 협업", "Zeplin"]],
+  alchera: [["OS", "Windows"], ["IDE", "Android Studio"], ["버전 관리", "SourceTree"], ["디자인 협업", "Zeplin"]],
+};
+
+export const careers: Career[] = base.map((c) => ({ ...c, env: env[c.slug] ?? [] }));
