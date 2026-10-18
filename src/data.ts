@@ -44,7 +44,7 @@ export const lemon = {
       desc: "반복되는 개발 업무를 AI가 처리하는 구조를 설계하고 만들고 있습니다.",
       bullets: [
         "Slack으로 빌드와 배포를 요청하고, 배포는 Jenkins가 수행",
-        "Crashlytics 크래시를 수집하고 원인 분석과 수정까지 자동 진행",
+        "Crashlytics 크래시를 주기적으로 조회해 Mattermost로 알림, 원인 분석과 수정은 개발 중",
         "유닛 테스트와 UI 테스트를 AI로 작성하고 실행",
         "AI 코딩 에이전트용 하네스 구조 설계",
       ],
@@ -126,7 +126,7 @@ export const infra = [
     desc: "메신저를 개발 작업의 입구로 씁니다. 슬래시 명령으로 빌드를 요청하고, 빌드·배포·리뷰·수익 같은 이벤트를 한 채널에서 받습니다.",
     bullets: [
       "/deploy 명령으로 앱 모듈, 빌드 유형, 환경을 지정해 Jenkins 빌드를 실행",
-      "Firebase App Distribution, GitHub 이벤트, Crashlytics 알림 수신 엔드포인트",
+      "Firebase App Distribution, GitHub 이벤트 수신 엔드포인트, Crashlytics 크래시 주기 조회 알림",
       "Google Play 리뷰와 AdMob 수익은 주기적으로 조회해 채널에 요약",
       "Claude와 Copilot에 연결한 대화형 봇 (이벤트 스트림 수신)",
       "Mattermost 메시지를 Claude Code 세션과 주고받는 MCP 채널을 구성하고, 도구 승인 요청을 DM으로 중계",
@@ -192,7 +192,7 @@ export const automations = [
   { title: "백엔드·프론트엔드 배포", desc: "서버와 웹 배포를 파이프라인으로 처리합니다.", wip: false },
   { title: "빌드 결과 알림", desc: "빌드 결과를 사실 데이터로 조립해 정책과 폴백 순서에 따라 Mattermost 등으로 알립니다.", wip: false },
   { title: "빌드 실패 분석·수정", desc: "실패 로그를 로컬 LLM이 분석하고 수정을 시도합니다.", wip: false },
-  { title: "크래시 감지·분석·수정", desc: "Crashlytics 알림을 Mattermost로 받는 수신부는 구현했고, 원인 분석과 수정 PR 초안 생성은 개발 중입니다.", wip: true },
+  { title: "크래시 감지·알림·수정", desc: "Crashlytics API를 주기적으로 조회해 신규·재발·급증 크래시를 Mattermost로 알립니다. 앱 생성 시 Firebase 프로젝트와 알림 연결도 함께 처리합니다. 원인 분석과 수정 PR 초안 생성은 개발 중입니다.", wip: true },
   { title: "UI 테스트 자동화", desc: "화면 테스트를 파이프라인에서 자동으로 실행합니다.", wip: true },
 ];
 
