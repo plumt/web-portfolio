@@ -16,15 +16,15 @@ export const lemon = {
   period: "2025.07 - 현재",
   items: [
     {
-      title: "의료진용 업무 앱",
+      title: "의료진용 업무 앱 개발·운영, KMP 고도화",
       meta: "Android · iOS · 사내 배포",
-      desc: "의료진이 업무에 쓰는 내부 앱을 KMP로 개발하고 운영합니다. Android와 iOS를 모두 담당합니다.",
+      desc: "의료진이 업무에 쓰는 내부 앱을 개발하고 운영하며, KMP 기반으로 고도화하고 있습니다. Android와 iOS를 모두 담당합니다.",
       chips: ["KMP", "Kotlin", "Compose"],
     },
     {
-      title: "환자용 앱 KMP 고도화",
+      title: "환자용 앱 개발·운영, KMP 고도화",
       meta: "Android · iOS · 스토어 출시",
-      desc: "계약 병원을 방문하는 환자가 진료 정보와 예약을 확인하는 앱입니다. 레거시 앱을 KMP 기반으로 전환하는 과정에서 클린 아키텍처 기반의 feature·core 모듈과 비즈니스 로직을 구축했습니다.",
+      desc: "계약 병원을 방문하는 환자가 진료 정보와 예약을 확인하는 앱을 개발하고 운영합니다. 레거시 앱을 KMP 기반으로 고도화하면서 클린 아키텍처 기반의 feature·core 모듈과 비즈니스 로직을 구축했습니다.",
       chips: ["KMP", "Clean Architecture", "모듈화"],
     },
     {

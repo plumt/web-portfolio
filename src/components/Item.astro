@@ -1,5 +1,5 @@
 ---
-const { title, meta, url, pills = [], chips = [], bullets = [], icon, tone = 0, current = false, target = "_blank" } = Astro.props;
+const { title, meta, url, pills = [], chips = [], bullets = [], icon, image, tone = 0, current = false, target = "_blank" } = Astro.props;
 const Tag = url ? "a" : "div";
 const left = [meta, ...pills.map((p) => p.text)].filter(Boolean).join(" · ");
 const linkProps = url ? { href: url, target, ...(target === "_blank" ? { rel: "noopener noreferrer" } : {}) } : {};
@@ -7,8 +7,9 @@ const linkProps = url ? { href: url, target, ...(target === "_blank" ? { rel: "n
 
 <Tag class={`pcard${current ? " current" : ""}`} {...linkProps}>
   <div class="meta">
-    {icon && <div class={`app-icon tone-${tone}`} aria-hidden="true">{icon}</div>}
-    {icon ? <span class="sub">{left}</span> : left}
+    {image && <img class="app-icon app-icon-img" src={image} alt="" />}
+    {!image && icon && <div class={`app-icon tone-${tone}`} aria-hidden="true">{icon}</div>}
+    {icon || image ? <span class="sub">{left}</span> : left}
   </div>
   <div class="body">
     <h3>{title}{url && target === "_blank" && <span class="sr-only"> (새 창)</span>}</h3>

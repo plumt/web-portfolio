@@ -125,3 +125,4 @@ a.pcard[target="_self"] h3::after { content: "→"; }
 .detail-links a { margin-right: 1rem; color: var(--accent); }
 .detail-title { display: flex; align-items: center; gap: .6em; }
 .detail-logo { height: 1.25em; width: 1.25em; flex: none; border-radius: 22%; object-fit: cover; }
+.app-icon-img { background: #fff; object-fit: cover; border: 1px solid var(--line); }
