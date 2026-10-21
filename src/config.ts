@@ -20,5 +20,5 @@ export const PROFILE = {
   github: 'https://github.com/plumt',
   velog: 'https://velog.io/@dldbstjd3210',
   notion: 'https://app.notion.com/p/3fc3c82d6b3081ae921cd4d3fd596b53',
-  docsRepo: 'https://github.com/plumt/yunseongApps-docs',
+  docsRepo: 'https://github.com/plumt/docs-dev-notes',
 };

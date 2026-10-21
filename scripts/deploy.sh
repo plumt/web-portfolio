@@ -11,7 +11,7 @@
 set -euo pipefail
 
 OWNER="plumt"
-REPO="portfolio"
+REPO="web-portfolio"
 BRANCH="main"
 WATCH=1
 
