@@ -10,6 +10,8 @@ export interface Props {
 }
 
 const { title, description, ogType = 'website' } = Astro.props;
+// 링크 미리보기 이미지 (카카오톡·Slack 등). 절대 주소여야 한다
+const ogImage = new URL('/og.png', Astro.site ?? Astro.url).href;
 ---
 
 <!-- Global Metadata -->
@@ -32,9 +34,13 @@ const { title, description, ogType = 'website' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={ogImage} />
