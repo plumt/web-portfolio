@@ -3,9 +3,15 @@ import { PROFILE } from "../config";
 const { sideBarActiveItemID } = Astro.props;
 const items = [
   { id: "home", href: "/", label: "Home" },
-  { id: "projects", href: "/projects", label: "Apps" },
+  { id: "projects", href: "/projects", label: "My Apps" },
   { id: "cv", href: "/cv", label: "Experience" },
   { id: "lab", href: "/lab", label: "Infra & AI" },
+];
+// 외부 채널은 한 메뉴로 접어 둔다
+const links = [
+  { href: PROFILE.velog, label: "Blog (velog)" },
+  { href: PROFILE.github, label: "GitHub" },
+  { href: PROFILE.notion, label: "Notion" },
 ];
 ---
 
@@ -13,6 +19,15 @@ const items = [
   {items.map((i) => (
     <li><a class="py-3 text-base" href={i.href} aria-current={sideBarActiveItemID === i.id ? "page" : undefined}>{i.label}</a></li>
   ))}
-  <li><a class="py-3 text-base" href={PROFILE.velog} target="_blank" rel="noopener noreferrer">Blog (velog)<span class="sr-only"> (새 창)</span></a></li>
+  <li>
+    <details>
+      <summary class="py-3 text-base">Links</summary>
+      <ul>
+        {links.map((l) => (
+          <li><a class="py-2 text-base" href={l.href} target="_blank" rel="noopener noreferrer">{l.label}<span class="sr-only"> (새 창)</span></a></li>
+        ))}
+      </ul>
+    </details>
+  </li>
   <li><a class="py-3 text-base" href={`mailto:${PROFILE.email}`}>Contact</a></li>
 </ul>

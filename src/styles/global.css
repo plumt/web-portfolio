@@ -19,6 +19,8 @@
 
 html { font-family: "Pretendard Variable", Pretendard, system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif; }
 body { background: var(--bg); color: var(--fg); letter-spacing: -0.01em; line-height: 1.7; word-break: keep-all; -webkit-font-smoothing: antialiased; }
+/* 마지막 줄에 한 단어만 남는 줄바꿈을 피한다 */
+p, li { text-wrap: pretty; }
 main { width: 100%; }
 a { color: inherit; }
 a:focus-visible, .btn:focus-visible, label:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
@@ -36,7 +38,7 @@ a:focus-visible, .btn:focus-visible, label:focus-visible { outline: 2px solid va
 .hero-kicker { font-size: .95rem; color: var(--muted); }
 .hero-title { font-size: clamp(2rem, 5.2vw, 3.4rem); line-height: 1.22; font-weight: 800; margin: .9rem 0 1rem; letter-spacing: -0.03em; }
 .accent-text { color: var(--accent); }
-.hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 36rem; }
+.hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 44rem; }
 .hero-links { display: flex; gap: 1.5rem; margin-top: 1.5rem; font-weight: 600; }
 .hero-links a { border-bottom: 1px solid var(--fg); padding-bottom: 2px; }
 .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
@@ -56,7 +58,7 @@ a:focus-visible, .btn:focus-visible, label:focus-visible { outline: 2px solid va
 .sec-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
 .sec-num { font-size: 3.5rem; font-weight: 200; line-height: 1; color: var(--line); font-variant-numeric: tabular-nums; letter-spacing: -0.04em; }
 .sec-title { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
-.sec-desc { color: var(--muted); max-width: 38rem; margin: .6rem 0 1.5rem; }
+.sec-desc { color: var(--muted); margin: .6rem 0 1.5rem; }
 .band { background: var(--accent-soft); border-radius: 1.25rem; padding: 2.5rem 1.5rem 1.5rem; }
 @media (min-width: 768px) { .band { padding: 3rem 2.5rem 2rem; } }
 .band .card-grid { border-top-color: color-mix(in srgb, var(--accent) 35%, transparent); }
