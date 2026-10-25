@@ -8,13 +8,13 @@ const appIcons = import.meta.glob("./assets/apps/*.png", { eager: true, query: "
 const DOC_APPS = new Set(["lottomate", "lunar", "qrscanner", "diding", "moduta", "fxrate"]);
 
 export const apps = [
-  { name: "Lottomate", path: "lottomate", desc: "로또 번호 관리, 당첨 확인, 통계, 당첨 푸시 알림. 종이 티켓 느낌의 Paper 컴포넌트로 화면을 통일했습니다.", chips: ["Compose", "Room", "FCM"] },
-  { name: "Lunar", path: "lunar", desc: "달 위상 대시보드와 달력, 달 이벤트 알림.", chips: ["Compose", "FCM"] },
-  { name: "QRScanner (Q-Ring)", path: "qrscanner", desc: "QR 다중 스캔, 생성, 이력 관리.", chips: ["Compose"] },
-  { name: "Diding", path: "diding", desc: "알람 기반 TODO·일정 관리.", chips: ["Compose"] },
-  { name: "Moduta", path: "moduta", desc: "서울시 버스 실시간 정보와 지도, 서버 프록시를 거친 대기질 정보.", chips: ["Compose"] },
-  { name: "Fxrate", path: "fxrate", desc: "환율 조회와 임계값 알림, 홈 위젯.", chips: ["Compose"] },
-  { name: "Airtalk", path: "airtalk", desc: "카카오·네이버·이메일 로그인 채팅 앱. 최대 10명 그룹 대화, 읽음 위치 동기화, 단일 기기 로그인.", chips: ["Compose", "Firebase RTDB", "FCM"] },
+  { name: "로픽", path: "lottomate", desc: "로또 번호 관리, 당첨 확인, 통계, 당첨 푸시 알림. 종이 티켓 느낌의 Paper 컴포넌트로 화면을 통일했습니다.", chips: ["Compose", "Room", "FCM"] },
+  { name: "달의 위상", path: "lunar", desc: "달 위상 대시보드와 달력, 달 이벤트 알림.", chips: ["Compose", "FCM"] },
+  { name: "Q-Ring", path: "qrscanner", desc: "QR 다중 스캔, 생성, 이력 관리.", chips: ["Compose"] },
+  { name: "디딩", path: "diding", desc: "알람 기반 TODO·일정 관리.", chips: ["Compose"] },
+  { name: "서울버스", path: "moduta", desc: "서울시 버스 실시간 정보와 지도, 서버 프록시를 거친 대기질 정보.", chips: ["Compose"] },
+  { name: "환율", path: "fxrate", desc: "환율 조회와 임계값 알림, 홈 위젯.", chips: ["Compose"] },
+  { name: "airTalk", path: "airtalk", desc: "카카오·네이버·이메일 로그인 채팅 앱. 최대 10명 그룹 대화, 읽음 위치 동기화, 단일 기기 로그인.", chips: ["Compose", "Firebase RTDB", "FCM"] },
 ].map((a) => ({ ...a, url: DOC_APPS.has(a.path) ? `${PROFILE.docsRepo}/tree/main/yunseong-apps/apps/${a.path}` : undefined, image: appIcons[`./assets/apps/${a.path}.png`] as string | undefined }));
 
 
