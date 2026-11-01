@@ -1,0 +1,22 @@
+name: Update Notion resume career
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # 매월 1일 노션 이력서의 경력 기간 갱신
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --experimental-strip-types scripts/notion-career.ts
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PAGE_ID: 3fc3c82d6b3081ae921cd4d3fd596b53
