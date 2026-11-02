@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Item from "../components/Item.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { sdks } from "../data";
+---
+
+<BaseLayout title="SDK" sideBarActiveItemID="sdk">
+  <SectionHead num="01" title="오픈소스 SDK" desc="앱을 만들며 쌓은 로직을 라이브러리로 분리해 공개 배포하고 유지보수합니다. 목록은 계속 늘어납니다." />
+  <div class="card-grid">
+    {sdks.map((s) => (
+      <Item title={s.title} meta={s.meta} url={s.url} chips={s.chips} bullets={s.bullets}><p>{s.desc}</p></Item>
+    ))}
+  </div>
+  <p class="mt-4">
+    {sdks.map((s) => (
+      <a class="text-link mr-4" href={s.mavenUrl} target="_blank" rel="noopener noreferrer">{s.title} Maven Central →<span class="sr-only"> (새 창)</span></a>
+    ))}
+  </p>
+</BaseLayout>
