@@ -2,14 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Item from "../components/Item.astro";
 import SectionHead from "../components/SectionHead.astro";
-import { PROFILE } from "../config";
+import { PROFILE, careerYear } from "../config";
 import { apps, sdks, stats, lemon, infra } from "../data";
 ---
 
 <BaseLayout sideBarActiveItemID="home">
   <section class="hero-wrap">
     <h1 class="hero-title">
-      안녕하세요,<br /><span class="accent-text">모바일 앱 개발자</span> 이윤성입니다
+      안녕하세요,<br /><span class="accent-text">{careerYear()}년차 모바일 앱 개발자</span> 이윤성입니다
     </h1>
     <p class="hero-sub">
       Android를 주력으로 앱을 만듭니다. 클린 아키텍처로 앱을 모듈 단위로 조립하고,

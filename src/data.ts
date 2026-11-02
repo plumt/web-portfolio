@@ -1,4 +1,4 @@
-import { PROFILE, careerYear } from "./config";
+import { PROFILE } from "./config";
 import { careers } from "./careers";
 
 // 앱 아이콘은 src/assets/apps/<path>.png 가 있는 앱만 표시한다.
@@ -229,8 +229,8 @@ export const automations = [
 
 
 export const stats = [
-  { num: `${careerYear()}년차`, label: "모바일 앱 개발자" },
   { num: "7개", label: "Side Projects" },
+  { num: `${sdks.length}개`, label: "공개 SDK" },
   { num: `${automations.length}개`, label: "자동화 프로세스" },
   // 임시: ai-harness 의 skills/ + agents/ 를 센 값(2026-10-24, 스킬 22·에이전트 20). 갱신 방법은 추후 결정
   { num: "42개", label: "AI 스킬·에이전트" },
