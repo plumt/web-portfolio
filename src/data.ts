@@ -24,16 +24,8 @@ export const sdks = [
     meta: "lunar · net.plumt.astro:lunar:0.0.1",
     url: "https://github.com/plumt/sdk-kotlin-astro",
     mavenUrl: "https://central.sonatype.com/artifact/net.plumt.astro/lunar",
-    desc: "달 위상과 절기를 오프라인으로 계산하는 Kotlin 라이브러리입니다. 순수 JVM jar라 Android, 서버, 데스크톱에서 모두 씁니다. 직접 만든 \"달의 위상\" 앱에서 실제로 사용합니다.",
-    bullets: [
-      "삭·상현·망·하현 시각, 음력 일자, 블루문·슈퍼문·미니문, 지구-달 거리, 위치별 월출·월몰, 24절기 계산",
-      "Jean Meeus의 Astronomical Algorithms 기반. 위상 시각은 한국천문연구원 발표값과 ±2~3분 이내, 월출·월몰은 1926~2050년 구간에서 약 95%가 분 단위까지 일치",
-      "파사드 인터페이스 LunarCalculator 하나만 공개하고 나머지는 internal(Kotlin explicitApi), 공개 API는 binary-compatibility-validator로 고정",
-      "의존성은 kotlin-stdlib뿐이고 jar 약 100KB, Java 11 바이트코드. 잘못된 입력은 IllegalArgumentException·LunarCalculationException으로 알림",
-      "단위 테스트 78개, GitHub Actions CI, SemVer와 CHANGELOG, Apache-2.0",
-      "Maven Central 릴리스는 Jenkins 파이프라인이 승인 게이트를 거쳐 GPG 서명 후 배포하고 모듈별 버전 태그를 자동으로 남김",
-    ],
-    chips: ["Kotlin", "JVM", "Maven Central", "Jenkins", "GitHub Actions"],
+    desc: "달 위상·음력·월출월몰·24절기를 오프라인으로 계산하는 Kotlin/JVM 라이브러리.",
+    chips: ["Kotlin", "JVM", "Maven Central"],
   },
 ];
 
