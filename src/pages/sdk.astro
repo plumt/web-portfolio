@@ -9,7 +9,7 @@ import { sdks } from "../data";
   <SectionHead num="01" title="오픈소스 SDK" desc="앱을 만들며 쌓은 로직을 라이브러리로 분리해 공개 배포하고 유지보수합니다. 목록은 계속 늘어납니다." />
   <div class="card-grid">
     {sdks.map((s) => (
-      <Item title={s.title} meta={s.meta} url={s.url} chips={s.chips} bullets={s.bullets}><p>{s.desc}</p></Item>
+      <Item title={s.title} meta={s.meta} url={s.url} chips={s.chips}><p>{s.desc}</p></Item>
     ))}
   </div>
   <p class="mt-4">
